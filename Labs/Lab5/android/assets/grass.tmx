@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="8" height="8" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="19">
+ <tileset firstgid="1" source="grass/grass_flowers1.tsx"/>
+ <tileset firstgid="2" source="grass/starfish.tsx"/>
+ <imagelayer id="2" name="Image Layer 1">
+  <image source="large-water copy.jpg" width="1024" height="1024"/>
+ </imagelayer>
+ <layer id="1" name="Tile Layer 1" width="8" height="8">
+  <data encoding="base64">
+   AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAQAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAIAAAABAAAAAQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAA==
+  </data>
+ </layer>
+ <objectgroup id="3" name="Object Layer 1">
+  <object id="5" gid="2" x="851.878" y="261.989" width="64" height="64"/>
+  <object id="6" gid="2" x="599.342" y="185.326" width="64" height="64"/>
+  <object id="7" gid="2" x="599.342" y="185.326" width="64" height="64"/>
+  <object id="8" gid="2" x="236.32" y="189.835" width="64" height="64"/>
+  <object id="9" gid="2" x="92.0135" y="652.068" width="64" height="64"/>
+  <object id="10" gid="2" x="92.0135" y="652.068" width="64" height="64"/>
+  <object id="11" gid="2" x="236.32" y="809.903" width="64" height="64"/>
+  <object id="12" gid="2" x="612.87" y="832.451" width="64" height="64"/>
+  <object id="13" gid="2" x="639.928" y="712.947" width="64" height="64"/>
+  <object id="14" gid="2" x="781.98" y="692.654" width="64" height="64"/>
+  <object id="15" gid="2" x="845.114" y="606.972" width="64" height="64"/>
+ </objectgroup>
+</map>

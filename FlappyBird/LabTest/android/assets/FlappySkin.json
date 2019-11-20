@@ -1,0 +1,34 @@
+{
+com.badlogic.gdx.graphics.g2d.BitmapFont: {
+	BotsmaticRegularDemo: {
+		file: BotsmaticRegularDemo.fnt
+	}
+	FlappyBirdy: {
+		file: FlappyBirdy.fnt
+	}
+	FlappyBirdySmall: {
+		file: FlappyBirdy.fnt
+	}
+}
+com.badlogic.gdx.graphics.Color: {
+	Black: {
+		r: 0.033333384
+		g: 0.032888938
+		b: 0.032888938
+		a: 1
+	}
+	White: {
+		r: 1
+		g: 1
+		b: 1
+		a: 1
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
+	default: {
+		background: Background
+		titleFont: FlappyBirdySmall
+		titleFontColor: Black
+	}
+}
+}

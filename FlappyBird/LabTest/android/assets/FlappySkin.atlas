@@ -1,0 +1,27 @@
+
+FlappySkin.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Background
+  rotate: false
+  xy: 1, 182
+  size: 144, 256
+  orig: 144, 256
+  offset: 0, 0
+  index: -1
+FlappyBirdy
+  rotate: false
+  xy: 1, 460
+  size: 497, 36
+  orig: 497, 36
+  offset: 0, 0
+  index: -1
+BotsmaticRegularDemo
+  rotate: false
+  xy: 1, 440
+  size: 312, 18
+  orig: 312, 18
+  offset: 0, 0
+  index: -1
