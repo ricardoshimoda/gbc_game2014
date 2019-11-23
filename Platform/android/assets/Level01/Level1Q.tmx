@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-down" width="100" height="12" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="71">
+ <tileset firstgid="1" source="SandyAgain.tsx"/>
+ <tileset firstgid="2" source="BGSand.tsx"/>
+ <tileset firstgid="122" name="AnotherSand" tilewidth="128" tileheight="128" tilecount="1" columns="1">
+  <image source="Tile/1.png" width="128" height="128"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="1" x="128" y="0"/>
+    <object id="2" x="0" y="0"/>
+    <object id="3" x="0" y="128"/>
+    <object id="4" x="128" y="128"/>
+    <object id="5" x="128" y="0"/>
+    <object id="6" x="0" y="128"/>
+    <object id="7" x="0" y="128"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="123" name="Sandice" tilewidth="128" tileheight="128" tilecount="1" columns="1">
+  <image source="Tile/3.png" width="128" height="128"/>
+  <tile id="0">
+   <properties>
+    <property name="name" value="SandPlatform"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="124" source="SandSand.tsx"/>
+ <tileset firstgid="125" name="hnjgg" tilewidth="128" tileheight="128" tilecount="1" columns="1">
+  <properties>
+   <property name="asdfasdf" value="asdfa"/>
+   <property name="hohohoh" value="dasdasdas"/>
+   <property name="name" value="lalalla"/>
+  </properties>
+  <image source="Tile/13.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="126" name="SandStorm" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
+ <tileset firstgid="126" name="Sandy" tilewidth="128" tileheight="93" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="93" source="Tile/16.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="127" name="1" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/1.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="128" name="2" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/2.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="129" name="3" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/3.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="130" name="4" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/4.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="131" name="5" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/5.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="132" name="6" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/6.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="133" name="7" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/7.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="134" name="8" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/8.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="135" name="9" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/9.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="136" name="10" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/10.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="137" name="11" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/11.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="138" name="12" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/12.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="139" name="13" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="Tile/13.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="140" name="14" tilewidth="128" tileheight="93" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="93" source="Tile/14.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="141" name="15" tilewidth="128" tileheight="93" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="93" source="Tile/15.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="142" name="StoneBlock" tilewidth="101" tileheight="99" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="101" height="99" source="Objects/StoneBlock.png"/>
+  </tile>
+ </tileset>
+ <objectgroup id="2" name="SandPlatform">
+  <properties>
+   <property name="nona" value="asdfasdf"/>
+  </properties>
+  <object id="54" gid="123" x="0" y="1408" width="128" height="128"/>
+  <object id="55" gid="123" x="128" y="1408" width="128" height="128"/>
+  <object id="56" gid="123" x="256" y="1408" width="128" height="128"/>
+  <object id="57" gid="123" x="384" y="1408" width="128" height="128"/>
+  <object id="58" gid="123" x="512" y="1408" width="128" height="128"/>
+  <object id="59" gid="123" x="640" y="1408" width="128" height="128"/>
+  <object id="60" gid="123" x="768" y="1408" width="128" height="128"/>
+  <object id="61" gid="123" x="1024" y="1408" width="128" height="128"/>
+  <object id="62" gid="123" x="1024" y="1408" width="128" height="128"/>
+  <object id="63" gid="123" x="1152" y="1408" width="128" height="128"/>
+  <object id="64" gid="123" x="896" y="1408" width="128" height="128"/>
+  <object id="65" gid="123" x="1408" y="1408" width="128" height="128"/>
+  <object id="66" gid="123" x="1408" y="1408" width="128" height="128"/>
+  <object id="67" gid="123" x="1280" y="1408" width="128" height="128"/>
+  <object id="68" gid="123" x="1536" y="1408" width="128" height="128"/>
+  <object id="69" gid="123" x="1664" y="1408" width="128" height="128"/>
+  <object id="70" gid="123" x="1792" y="1408" width="128" height="128"/>
+ </objectgroup>
+</map>

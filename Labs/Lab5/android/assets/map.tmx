@@ -15,6 +15,7 @@
   <image source="sign.png" width="64" height="64"/>
   <tile id="0">
    <properties>
+    <property name="brulesque" value="sddasdfadsfasdf"/>
     <property name="message" value="Hello, world!"/>
     <property name="name" value="Sign"/>
    </properties>
@@ -77,7 +78,11 @@
   <object id="8" gid="5" x="446" y="297" width="64" height="64"/>
   <object id="9" gid="5" x="384" y="320" width="64" height="64"/>
   <object id="10" gid="5" x="320" y="352" width="64" height="64"/>
-  <object id="11" gid="5" x="288" y="416" width="64" height="64"/>
+  <object id="11" gid="5" x="288" y="416" width="64" height="64">
+   <properties>
+    <property name="kkk" value="yjtjsdtyj"/>
+   </properties>
+  </object>
   <object id="15" gid="5" x="288" y="480" width="64" height="64"/>
   <object id="16" gid="5" x="288" y="544" width="64" height="64"/>
   <object id="17" gid="5" x="704" y="768" width="64" height="64"/>
