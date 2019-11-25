@@ -4,11 +4,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Align;
 import com.mygdx.game.base.ActorBeta;
 
-public final class Background extends ActorBeta {
-    public Background (float x, float y, Stage s, float sizeX, float sizeY, int level) {
+public final class DeathBackground extends ActorBeta {
+    public DeathBackground (float x, float y, Stage s, float sizeX, float sizeY) {
         // Setup basic stuff
         super(x, y, s);
-        loadTexture("Level0"+level+"/BG.png");
+        loadTexture("UI/White.png");
         float originalWidth = getWidth();
         float originalHeight = getHeight();
         setOrigin(Align.center);
@@ -25,5 +25,4 @@ public final class Background extends ActorBeta {
         setX((sizeX - getWidth())/2);
         setY((sizeY - getHeight())/2);
     }
-
 }

@@ -147,10 +147,11 @@ public class TilemapActor extends Actor
         // adjust tilemap camera to stay in sync with main camera
         Camera mainCamera = getStage().getCamera();
         /* change this to player position */
-        tiledCamera.position.x = mainCamera.position.x;
+        tiledCamera.position.x +=1;// mainCamera.position.x;
         tiledCamera.position.y = mainCamera.position.y;
         tiledCamera.update();
         tiledMapRenderer.setView(tiledCamera);
+        tiledMapRenderer.
         //tiledCamera.near = 2.0f;
 
         // need the following code to force batch order,

@@ -45,7 +45,7 @@ public abstract class ScreenBeta implements Screen, InputProcessor {
     protected Stage uiStage;
 
     // TILEMAP
-    protected static float TILEMAP_ZOOM = 0.4f;
+    protected static float TILEMAP_ZOOM = 2.4f;
 
     //TABLE TO ORGANIZE LAYOUT
     Table uiTable;

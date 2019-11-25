@@ -14,6 +14,8 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.mygdx.game.actor.HeroActor;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -22,6 +24,9 @@ import java.util.Iterator;
  */ 
 public class TilemapActor extends Actor
 {
+
+    public HeroActor followHero;
+    public float generalWidth;
 
     // window dimensions
     public static int windowWidth  = 32;
@@ -38,7 +43,6 @@ public class TilemapActor extends Actor
     {
         // set up tile map, renderer, and camera
         tiledMap = new TmxMapLoader().load(filename);
-
         int tileWidth          = (int)tiledMap.getProperties().get("tilewidth");
         int tileHeight         = (int)tiledMap.getProperties().get("tileheight");
         int numTilesHorizontal = (int)tiledMap.getProperties().get("width");
@@ -145,7 +149,6 @@ public class TilemapActor extends Actor
     {
         // adjust tilemap camera to stay in sync with main camera
         Camera mainCamera = getStage().getCamera();
-        /* change this to player position */
         tiledCamera.position.x = mainCamera.position.x;
         tiledCamera.position.y = mainCamera.position.y;
         tiledCamera.update();

@@ -1,15 +1,13 @@
 package com.mygdx.game.actor.UI;
 
-
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Align;
 import com.mygdx.game.base.ActorBeta;
 
-public final class JumpButtonActor extends ActorBeta {
-    private static final float screenHeightRatio = 0.14f;
-
-    public JumpButtonActor (float x, float y, Stage st, float screenHeight){
-        super(x,y,st);
-        loadTexture("UI/Jump.png");
+public final class ObjectActor extends ActorBeta {
+    private static final float screenHeightRatio = 0.075f;
+    public ObjectActor (float screenHeight){
+        loadTexture("UI/Objects.png");
         float factor = screenHeightRatio * screenHeight/getHeight();
         setSize(factor*getWidth(), factor*getHeight());
     }

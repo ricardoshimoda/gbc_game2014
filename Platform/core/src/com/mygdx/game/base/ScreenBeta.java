@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -79,7 +80,7 @@ public abstract class ScreenBeta implements Screen, InputProcessor {
         isPaused = false;
 
         st = new Stage();
-        sk = new Skin(Gdx.files.internal("UI/Skin/comic-ui.json"));
+
         uiStage = new Stage();
 
         /***
@@ -160,6 +161,15 @@ public abstract class ScreenBeta implements Screen, InputProcessor {
     @Override
     public void pause() {
 
+    }
+
+    public boolean IsTouchingButton(float x, float y, Actor btn) {
+        float bX = btn.getX();
+        float bY = btn.getY();
+        float sizeX = btn.getWidth();
+        float sizeY = btn.getHeight();
+        return x >= bX && x <= (bX + sizeX)
+               && y >= bY && y <= (bY + sizeY);
     }
 
     public abstract void update(float dt);

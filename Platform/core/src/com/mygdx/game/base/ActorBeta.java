@@ -125,6 +125,9 @@ public class ActorBeta extends Actor {
 
     /* Animation methods */
 
+    public void setAnimation(Animation<TextureRegion> anim, boolean loop) {
+        setAnimation(anim, loop, true);
+    }
     public void setAnimation(Animation<TextureRegion> anim, boolean loop, boolean external) {
         if (animation != anim || external)
         {

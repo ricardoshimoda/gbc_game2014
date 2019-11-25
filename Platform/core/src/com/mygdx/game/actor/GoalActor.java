@@ -2,6 +2,7 @@ package com.mygdx.game.actor;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.base.ActorBeta;
 
 public final class GoalActor extends ActorBeta {
@@ -13,21 +14,16 @@ public final class GoalActor extends ActorBeta {
         10, 10, 10, 16, 15
     };
 
-    private static final String[] Goals = {
-        "You have to get 5 coins in total to open the passage",
-        "You have to get 10 coins in total to open the passage",
-        "You have to get 15 coins in total to open the passage",
-        "You have to get 20 coins in total to open the passage"
-    };
 
-    public GoalActor(int level, float screenHeight)
+    public GoalActor(float x, float y, Stage s, float scaling, float screenHeight, int level)
     {
+        super(x * scaling, y * scaling, s);
         idleR = LoadAnimation(level, "MovingRight");
         idleL = LoadAnimation(level, "MovingLeft" );
 
         factor = screenHeightRatio * screenHeight/getHeight();
         // Sets First Animation;
-        setAnimation(idleL, true, true);
+        setAnimation(idleL, true);
     }
 
     private Animation<TextureRegion> LoadAnimation(int level, String orientation)
