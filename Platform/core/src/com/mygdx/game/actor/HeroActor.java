@@ -50,6 +50,7 @@ public final class HeroActor extends ActorBeta {
     /* Hero life */
     public int currentHealth = MAX_HEALTH;
     public float hurtTimer = HURT_TIME;
+    public boolean win = false;
 
     public HeroActor(float screenHeight, float screenWidth)
     {
@@ -90,7 +91,7 @@ public final class HeroActor extends ActorBeta {
     public void act(float dt)
     {
         super.act(dt);
-        if(currentHealth > 0)
+        if(currentHealth > 0 && ! win)
         {
             Move(dt);
             Jump(dt);
@@ -226,19 +227,13 @@ public final class HeroActor extends ActorBeta {
         {
             grounded = true;
             jumping=false;
-            switch(currentMovement){
-                case IDLE_LEFT:
-                    setAnimation(idleL,true);
-                    break;
-                case IDLE_RIGHT:
-                    setAnimation(idleR,true);
-                    break;
-                case LEFT:
-                    setAnimation(walkL,true);
-                    break;
-                case RIGHT:
-                    setAnimation(walkR,true);
-                    break;
+            if(GoingRight()){
+                setAnimation(idleR,true);
+                currentMovement = ActorMovement.IDLE_RIGHT;
+            }
+            else{
+                setAnimation(idleL,true);
+                currentMovement = ActorMovement.IDLE_LEFT;
             }
         }
     }

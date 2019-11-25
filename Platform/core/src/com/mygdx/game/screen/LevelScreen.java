@@ -15,6 +15,7 @@ import com.mygdx.game.actor.UI.DirectionalControlActor;
 import com.mygdx.game.actor.UI.HealthActor;
 import com.mygdx.game.actor.UI.HourglassActor;
 import com.mygdx.game.actor.UI.JumpButtonActor;
+import com.mygdx.game.actor.UI.NextButton;
 import com.mygdx.game.actor.UI.ObjectActor;
 import com.mygdx.game.actor.ZombieActor;
 import com.mygdx.game.actor.object.Collectible;
@@ -45,11 +46,13 @@ public final class LevelScreen extends ScreenBeta {
     DeathButton deathButton;
     Label deathLabel;
     DeathBackground deathBG;
+    NextButton nextButton;
 
     // Actors
     HeroActor hero;
-    ZombieActor zombie;
     GoalActor goal;
+
+    int currentLevel;
 
     float levelTimer = 0.0f;
     int timeToComplete = 180;
@@ -57,10 +60,18 @@ public final class LevelScreen extends ScreenBeta {
 
     private static final String[] GOALS = {
         "You have to get 5 crates in total to open the passage",
-        "You have to get 10 coins in total to open the passage",
-        "You have to get 15 coins in total to open the passage",
-        "You have to get 20 coins in total to open the passage",
+        "You have to get 7 boxes in total to open the passage",
+        "You have to get 10 tombs in total to open the passage",
+        "You have to get 12 crystals in total to open the passage",
         "Greet your owner at the end of the level"
+    };
+
+    private static final int[] COUNTABLE_GOALS = {
+            5,
+            7,
+            10,
+            12,
+            0
     };
 
     private static final String[] SKINS = {
@@ -77,8 +88,9 @@ public final class LevelScreen extends ScreenBeta {
     private ArrayList<GroundBlock> groundCollision;
     private ArrayList<Collectible> collectible;
     private ArrayList<ZombieActor> zombies;
-    private GoalActor goal;
     private boolean showDeath = false;
+    private boolean showWin = false;
+    private boolean win = false;
 
     Random randomGen;
     /*
@@ -88,7 +100,8 @@ public final class LevelScreen extends ScreenBeta {
 
     public void initialize() {
         randomGen = new Random();
-        LoadLevel(1);
+        currentLevel=5;
+        LoadLevel(currentLevel);
         //mission
     }
 
@@ -99,6 +112,8 @@ public final class LevelScreen extends ScreenBeta {
     }
 
     public void LoadLevel(int level){
+        showWin = false;
+        win = false;
         showDeath = false;
         timeToComplete = 180;
         items = 0;
@@ -109,6 +124,7 @@ public final class LevelScreen extends ScreenBeta {
         background = new Background(0,0,st,WIDTH,HEIGHT,level);
 
         hero = new HeroActor(HEIGHT, WIDTH);
+        hero.win = false;
         st.addActor(hero);
         hero.setPosition(0.5f*WIDTH, 0.3f*HEIGHT);
 
@@ -209,9 +225,24 @@ public final class LevelScreen extends ScreenBeta {
         }
     }
 
+
+    public void CharacterWin()
+    {
+        if(!showWin){
+            showWin = true;
+            deathBG = new DeathBackground(0,0,st,WIDTH,HEIGHT);
+            deathLabel = new Label("Next Level", sk);
+            st.addActor(deathLabel);
+            deathLabel.setOrigin(Align.center);
+            deathLabel.setFontScale(3.0f);
+            deathLabel.setPosition(0.45f*WIDTH,0.65f*HEIGHT);
+            nextButton = new NextButton(0.43f*WIDTH,0.3f*HEIGHT,st,HEIGHT);
+            hero.StopMoving();
+        }
+    }
     @Override
     public void update(float dt) {
-        if(hero.currentHealth > 0){
+        if(hero.currentHealth > 0 && !showWin){
             // Certain things only matter when the player is alive
             levelTimer += dt;
             if(levelTimer >=1.0f)
@@ -227,9 +258,13 @@ public final class LevelScreen extends ScreenBeta {
             Collision_Ground_Hero();
             Collision_Collectible_Hero();
             Collision_Zombie_Hero();
+            Collision_Goal_Hero();
         }
-        else{
+        else if(hero.currentHealth <= 0 && !showDeath){
             CharacterDeath();
+        }
+        else {
+            CharacterWin();
         }
 
     }
@@ -243,18 +278,35 @@ public final class LevelScreen extends ScreenBeta {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         float realX = screenX;
         float realY = HEIGHT - screenY; // This guy is kind of inverted
-        if(hero.currentHealth>0)
+        if(hero.currentHealth > 0)
         {
-            //Going Right
-            if(IsTouchingButton(realX,realY,rightButton)){
-                hero.StartMoving(ActorMovement.RIGHT);
-            } else if(IsTouchingButton(realX,realY,leftButton)){
-                hero.StartMoving(ActorMovement.LEFT);
+            if(!win){
+                //Going Right
+                if(IsTouchingButton(realX,realY,rightButton)){
+                    hero.StartMoving(ActorMovement.RIGHT);
+                } else if(IsTouchingButton(realX,realY,leftButton)){
+                    hero.StartMoving(ActorMovement.LEFT);
+                }
+                if(IsTouchingButton(realX,realY,jumpButton)){
+                    hero.StartJump();
+                }
+            } else if(win)
+            {
+                if(IsTouchingButton(realX,realY,deathButton)){
+                    st.clear();
+                    if(currentLevel < 5){
+                        currentLevel++;
+                        LoadLevel(currentLevel);
+                    }
+                }
             }
-            if(IsTouchingButton(realX,realY,jumpButton)){
-                hero.StartJump();
+        }
+        else
+        {
+            if(IsTouchingButton(realX,realY,nextButton)){
+                st.clear();
+                LoadLevel(currentLevel);
             }
-
         }
 
         return super.touchDown(screenX, screenY, pointer, button);
@@ -276,11 +328,25 @@ public final class LevelScreen extends ScreenBeta {
     }
 
     public void Collision_Goal_Hero(){
-        float hY = hero.getY();
-        float hX = hero.getX() + 0.2f * hero.getWidth();
-        float hSizeY = hero.getHeight();
-        float hSizeX = 0.52f * hero.getWidth();
+        if(!showWin) {
+            float hY = hero.getY();
+            float hX = hero.getX() + 0.2f * hero.getWidth();
+            float hSizeY = hero.getHeight();
+            float hSizeX = 0.52f * hero.getWidth();
+            float gX = goal.getX();
+            float gY = goal.getY() + 0.8f * goal.getHeight();
+            float gSizeX = goal.getWidth();
+            float gSizeY = 0.2f * goal.getHeight();
 
+            if (hX < gX + gSizeX &&
+                    hX + hSizeX > gX &&
+                    hY < gY + gSizeY &&
+                    hY + hSizeY > gY && items >= COUNTABLE_GOALS[currentLevel-1]) {
+                win = true;
+                hero.win = true;
+                CharacterWin();
+            }
+        }
     }
 
     public void Collision_Zombie_Hero(){
