@@ -49,7 +49,7 @@ public abstract class ScreenBeta implements Screen, InputProcessor {
     public String transitionTo;
 
     // TILEMAP
-    protected static float TILEMAP_ZOOM = 0.4f;
+    protected float TILEMAP_ZOOM = 0.4f;
 
     //TABLE TO ORGANIZE LAYOUT
     Table uiTable;
@@ -76,6 +76,8 @@ public abstract class ScreenBeta implements Screen, InputProcessor {
     //CONSTRUCTOR
     public ScreenBeta()
     {
+
+        TILEMAP_ZOOM = 0.25f *HEIGHT/ 256.0f;
 
         isPaused = false;
 

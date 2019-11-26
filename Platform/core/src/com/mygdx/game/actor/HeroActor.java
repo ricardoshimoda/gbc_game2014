@@ -33,8 +33,8 @@ public final class HeroActor extends ActorBeta {
     private static final float SCREEN_HEIGHT_RATIO = 0.25f;
     private static final float UPWARD_TIME = 1.0f;
     private static final float HURT_TIME = 2.5f;
-    private static final float SPEED = 200.0f;
-    private static final float VERTICAL_SPEED = 200.0f;
+    private float SPEED = 200.0f;
+    private float VERTICAL_SPEED = 400.0f;
     private static final int MAX_HEALTH = 10;
 
     /* Hero movement */
@@ -52,8 +52,11 @@ public final class HeroActor extends ActorBeta {
     public float hurtTimer = HURT_TIME;
     public boolean win = false;
 
-    public HeroActor(float screenHeight, float screenWidth)
+    public HeroActor(float screenHeight, float screenWidth, float zoomFactor)
     {
+        SPEED = 256.0f * zoomFactor; //(covers two squares in one second )
+        VERTICAL_SPEED = 384.0f * zoomFactor; // covers three squares in one second
+
         moveAlong = new ArrayList<ActorBeta>();
         moveZombiesAlong = new ArrayList<ZombieActor>();
         widthChange = 0.5f * screenWidth;

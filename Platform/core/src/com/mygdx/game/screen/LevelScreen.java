@@ -100,7 +100,7 @@ public final class LevelScreen extends ScreenBeta {
 
     public void initialize() {
         randomGen = new Random();
-        currentLevel=5;
+        currentLevel=1;
         LoadLevel(currentLevel);
         //mission
     }
@@ -123,7 +123,7 @@ public final class LevelScreen extends ScreenBeta {
 
         background = new Background(0,0,st,WIDTH,HEIGHT,level);
 
-        hero = new HeroActor(HEIGHT, WIDTH);
+        hero = new HeroActor(HEIGHT, WIDTH, TILEMAP_ZOOM);
         hero.win = false;
         st.addActor(hero);
         hero.setPosition(0.5f*WIDTH, 0.3f*HEIGHT);
@@ -165,7 +165,7 @@ public final class LevelScreen extends ScreenBeta {
             MapProperties props = obj.getProperties();
             ZombieActor currentZombie = new ZombieActor(
                     (float)props.get("x"), (float)props.get("y"), st, TILEMAP_ZOOM, HEIGHT,
-                    randomGen.nextBoolean(), (float)props.get("width"), (1+(float)level/10) * 30 + 50 *randomGen.nextFloat() );
+                    randomGen.nextBoolean(), (float)props.get("width"), ((1+(float)level/10) * 30 + 50 *randomGen.nextFloat()) * TILEMAP_ZOOM );
             zombies.add(currentZombie);
         }
 
@@ -292,7 +292,7 @@ public final class LevelScreen extends ScreenBeta {
                 }
             } else if(win)
             {
-                if(IsTouchingButton(realX,realY,deathButton)){
+                if(IsTouchingButton(realX,realY,nextButton)){
                     st.clear();
                     if(currentLevel < 5){
                         currentLevel++;
@@ -303,7 +303,7 @@ public final class LevelScreen extends ScreenBeta {
         }
         else
         {
-            if(IsTouchingButton(realX,realY,nextButton)){
+            if(IsTouchingButton(realX,realY,deathButton)){
                 st.clear();
                 LoadLevel(currentLevel);
             }
